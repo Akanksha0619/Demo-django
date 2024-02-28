@@ -24,7 +24,7 @@ class Post(models.Model):
             img = Image.open(self.image.path)
 
             # Define your maximum image size here
-            max_width = 800
+            max_width = 1000
             max_height = 600
 
             if img.width > max_width or img.height > max_height:

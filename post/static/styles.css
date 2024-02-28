@@ -5,6 +5,10 @@ body {
 
 }
 
+.media content-section{
+width:50%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #343a40;
 }
@@ -30,10 +34,12 @@ ul {
 }
 
 .content-section {
+   width:90%;
   background: #ffffff;
-  padding: 10px 20px;
+  padding: 20px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
+  margin-left:250px;
   margin-bottom: 20px;
 }
 
@@ -156,7 +162,15 @@ a.article-title:hover {
 
 .nav-link:hover {
   color: #007bff; /* Dark blue text color on hover */
-  text-decoration: none; /* Remove underline on hover */
+
+
+    text-decoration: none; /* Add underline */
+    /* Change background color */
+    font-size: 1.1em; /* Increase font size */
+    font-weight: bold; /* Change font weight */
+    border-bottom: 2px solid white; /* Add border */
+    padding: 10px 15px; /* Adjust padding */
+    transition: all 0.3s ease; /* Add transition effect */
 }
 
 .active .nav-link {

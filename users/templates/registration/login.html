@@ -1,5 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+
+.content-section{
+   margin-top: 60px;
+}
+
+h2 {
+    margin-top: 20px; /* Add top margin */
+    margin-bottom: 20px;
+}
+
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color:#495057; /* Brown color */
+    color: #fff; /* White text color */
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+   background-color: #696969;
+  font-size: 1.1em;
+}
+
+label {
+    font-weight: bold;
+}
+
+</style>
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
