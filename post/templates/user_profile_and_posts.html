@@ -33,11 +33,6 @@
             margin-bottom: 10px;
         }
 
-        .profile-container img.post-image {
-            width: 200px; /* Set a fixed width for post images */
-            height: auto; /* Maintain aspect ratio */
-        }
-
         .profile-container small {
             color: #777;
         }
@@ -57,7 +52,7 @@
                 <h3><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
                 <!-- Display post image -->
                 {% if post.image %}
-                    <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} Image">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }} Image">
                 {% endif %}
                 <!-- Display other post information here -->
                 <p>{{ post.content }}</p>
