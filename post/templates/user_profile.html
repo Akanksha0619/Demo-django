@@ -1,0 +1,15 @@
+<!-- user_profile.html -->
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+            <!-- Display user profile image, username, email, etc. -->
+        </div>
+        <h2>Posts by {{ user.username }}</h2>
+        {% for post in posts %}
+            <article class="media content-section">
+                <!-- Display post content -->
+            </article>
+        {% endfor %}
+    </div>
+{% endblock content %}

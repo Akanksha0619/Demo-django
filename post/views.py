@@ -3,7 +3,8 @@ from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
 from .forms import PostForm
-from .models import Post
+from .models import User, Post
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate
 
 
@@ -70,4 +71,14 @@ def create_post(request):
     return render(request, 'create_post.html', {'form': form})
 
 
+def posts_by_date(request, date):
+    # Retrieve all posts uploaded on the given date
+    posts = Post.objects.filter(date_posted__date=date)
+    return render(request, 'posts_by_date.html', {'posts': posts, 'date': date})
 
+
+
+def user_profile_and_posts(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    posts = Post.objects.filter(author=user)
+    return render(request, 'user_profile_and_posts.html', {'user': user, 'posts': posts})

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        /* Styles for the profile page */
+        .profile-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-container h1,
+        .profile-container h2,
+        .profile-container h3 {
+            color: #333;
+        }
+
+        .profile-container p {
+            color: #555;
+        }
+
+        .profile-container article {
+            margin-bottom: 20px;
+        }
+
+        .profile-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .profile-container img.post-image {
+            width: 200px; /* Set a fixed width for post images */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .profile-container small {
+            color: #777;
+        }
+    </style>
+
+    <div class="profile-container">
+        <h1>{{ user.username }}'s Profile</h1>
+        <!-- Display user profile information here -->
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+        <!-- Example: Display user's email, bio, etc. -->
+        <p>Email: {{ user.email }}</p>
+        <!-- Add more profile information as needed -->
+
+        <h2>{{ user.username }}'s Posts</h2>
+        {% for post in posts %}
+            <article>
+                <h3><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+                <!-- Display post image -->
+                {% if post.image %}
+                    <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} Image">
+                {% endif %}
+                <!-- Display other post information here -->
+                <p>{{ post.content }}</p>
+                <small>Posted on: {{ post.date_posted }}</small>
+            </article>
+        {% endfor %}
+    </div>
+{% endblock %}
