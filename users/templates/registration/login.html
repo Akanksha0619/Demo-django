@@ -1,51 +1,104 @@
-{% extends "base.html" %}
-{% block content %}
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
 
-.content-section{
-   margin-top: 60px;
-}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8%;
+            background-repeat: no-repeat;
+            background-size: 1300px 600px;
+        }
 
-h2 {
-    margin-top: 20px; /* Add top margin */
-    margin-bottom: 20px;
-}
+        .container {
+            border: none;
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+            width: 500px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 50px;
+        }
 
+        .button {
+            width: 410px;
+            height: 35px;
+            background-color: #003366;
+            border-radius: 5px;
+            border: none;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: antiquewhite;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
 
-button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color:#495057; /* Brown color */
-    color: #fff; /* White text color */
-    border: none;
-    cursor: pointer;
-}
+        .button:hover {
+            background-color: #32aac5;
+        }
 
-button[type="submit"]:hover {
-   background-color: #696969;
-  font-size: 1.1em;
-}
+        .text {
+            text-align: center;
+        }
 
-label {
-    font-weight: bold;
-}
+        .text a {
+            text-decoration: none;
+        }
 
-</style>
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
-                {{ form.as_p }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
-            </small>
+        .block {
+            width: 400px;
+            height: 40px;
+            margin: 15px 0px;
+            position: relative; /* Add position relative to the block class */
+        }
+
+        .user i,
+        .lock i {
+            position: absolute;
+            right: 50px; /* Adjust right position for the icon */
+            top: 50%; /* Position the icon vertically centered */
+            transform: translateY(-50%); /* Move the icon up by half of its height */
+            font-size: 30px; /* Adjust icon size */
+            color: #555; /* Adjust icon color */
+        }
+
+        .lock,
+        .user {
+            padding-left: 50px;
+            position: relative; /* Add position relative to the lock and user class */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blur">
+            <h1 class="text">Login</h1>
+            <hr><br>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="main-body">
+                    <div class="form-group">
+                        <div class="user">
+                            <input type="text" class="block" id="username" placeholder="Username" name="username">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="lock">
+                            <input type="password" class="block" id="password" placeholder="Password" name="password">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="button" type="submit">Login</button>
+                        <small class="float-right text-muted"><a href="{% url 'password_reset' %}" class="text-dark"> Forgotten Password?</a></small>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-{% endblock %}
+</body>
+</html>

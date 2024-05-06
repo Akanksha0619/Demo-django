@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+            <div class="media-body">
+                <a href="{% url 'user-profile' post.author.id %}">{{ post.author.username }}</a>
+                <div class="article-metadata">
+                    <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                    {% if post.image %}
+                        <img class="article-image fixed-size-image" src="{{ post.image.url }}" alt="{{ post.title }}" onclick="openImageModal('{{ post.image.url }}', '{{ post.title }}')">
+                    {% endif %}
+                    <p class="mr-2"><a href="{% url 'posts-by-date' post.date_posted.date %}">{{ post.date_posted|date:"F d, Y" }}</a></p>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+
+    <!-- Pagination Links -->
+    {% if paginator.num_pages > 1 %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ posts.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ posts.number }} of {{ paginator.num_pages }}.
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}">next</a>
+                    <a href="?page={{ paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% endblock content %}

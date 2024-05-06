@@ -1,15 +1,33 @@
 # forms.py
 
+
 from django import forms
-from .models import Post
+from .models import Job, Feedback
+
 
 class PostForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ['title', 'content', 'image']  # Assuming 'title', 'content', and 'image' are fields in your Post model
+        model = Job
+        fields = ['company_name', 'company_image', 'position', 'salary', 'deadline', 'required_skills', 'location', 'description']
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+            'company_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'company_image': forms.FileInput(attrs={'class': 'form-control-file'}),
+            'position': forms.TextInput(attrs={'class': 'form-control'}),
+            'salary': forms.TextInput(attrs={'class': 'form-control'}),
+            'deadline': forms.DateInput(attrs={'class': 'form-control'}),
+            'required_skills': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+            'location': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+        }
+
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['name', 'enrollment_no', 'message']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control' }),
+            'enrollment_no': forms.TextInput(attrs={'class': 'form-control' }),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
         }

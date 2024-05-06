@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+
+body{
+            display: inline;
+        }
+
+
+
+       .show {display: block;}
+/* sidebar */
+       .inner-sidebar{
+      display: flex;
+      flex-direction: row;
+      width: 250px;
+      height: 100%;
+      position: fixed!important;
+      z-index: 1;
+      overflow: auto;
+      background-color: #003366;
+      text-align: center;
+    }
+    .links{
+      display: flex;
+      flex-direction: row;
+      padding: 15px;
+      padding-left: 45px;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .close{
+      width: 250px;
+      height:35px;
+      color: white;;
+      background-color:#003366 ;
+      font-family:'Times New Roman', Times, serif;
+      font-size: 120%;
+      font-weight: bolder;
+      border: 0px ;
+      margin: 0px;
+    }
+    .close:hover{
+        background-color: rgba(163, 202, 244, 0.39);
+    }
+    .links:hover{
+      background-color: rgba(204, 194, 194, 0.228)
+    }
+    .nav-bar{
+        color: white;
+        background-color: pink;
+        box-sizing: inherit;
+        margin: 8px 5px 5px 1px ;
+        background-color: #003366;
+    }
+    .open{
+        background-color: #003366;
+        border: none;
+    }
+    .outer-sidebar{
+        padding-left: 0px;
+        background-color: #003366;
+    }
+    .fa-user-circle{
+        font-size: 100px;
+        padding-left: 25px;
+    }
+    .text{
+        font-size: 20px;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          margin-left: 30%;
+          padding: 20px;
+          background-color: #f2f2f2;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+          text-align: center;
+          color: #09002b;
+        }
+        .tips {
+          margin-top: 20px;
+        }
+        .tip {
+          margin-bottom: 10px;
+        }
+        .tip h3 {
+          color: #7a3b03;
+        }
+        .tip p {
+          color: #000000;
+        }
+        .platforms {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+        .platforms h3{
+          color: #130b01;
+        }
+        .platform {
+          margin-bottom: 10px;
+          color: #007bff;
+          text-decoration: none;
+        }
+        .platform:hover {
+          text-decoration: underline;
+        }
+        .platforms:hover{
+          background-color: #ada6a644;
+        }
+
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    footer{
+      background-color: #891652;
+      color: white;
+      text-align: center;
+      height: 40px;
+      padding-top: 1px ;
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+
+  <main>
+    <div class="container">
+        <h1>Resume and CV Preparation Tips</h1>
+        <div class="tips">
+          <div class="tip">
+            <h3>Customize for Each Application</h3>
+            <p>Customize your resume or CV for each job application to highlight relevant skills and experiences.</p>
+          </div>
+          <div class="tip">
+            <h3>Keep It Concise</h3>
+            <p>Keep your resume or CV concise and to the point, ideally one or two pages long.</p>
+          </div>
+          <div class="tip">
+            <h3>Use Action Verbs</h3>
+            <p>Use action verbs to describe your experiences and accomplishments, such as "developed," "managed," "implemented," etc.</p>
+          </div>
+          <div class="tip">
+            <h3>Highlight Achievements</h3>
+            <p>Highlight your achievements and quantifiable results to demonstrate your impact in previous roles.</p>
+          </div>
+          <div class="tip">
+            <h3>Proofread Carefully</h3>
+            <p>Proofread your resume or CV carefully to avoid typos and grammatical errors.</p>
+          </div>
+        </div>
+        <div class="platforms">
+          <h3>Useful Platforms for Preparation:</h3>
+          <a class="platform" href="https://www.resume.com/">Resume.com</a>
+          <a class="platform" href="https://www.livecareer.com/resume-builder">LiveCareer Resume Builder</a>
+          <a class="platform" href="https://www.canva.com/resumes/">Canva - Resume Templates</a>
+        </div>
+      </div>
+
+    </head>
+    <body>
+      <div class="container">
+        <h1>Aptitude Round Preparation Tips</h1>
+        <div class="tips">
+          <div class="tip">
+            <h3>Practice Regularly</h3>
+            <p>Practice aptitude questions daily to improve your problem-solving skills.</p>
+          </div>
+          <div class="tip">
+            <h3>Understand Concepts</h3>
+            <p>Focus on understanding the underlying concepts rather than just memorizing formulas.</p>
+          </div>
+          <div class="tip">
+            <h3>Time Management</h3>
+            <p>Learn time management techniques to solve questions quickly and accurately.</p>
+          </div>
+        </div>
+        <div class="platforms">
+          <h3>Useful Platforms for Preparation:</h3>
+          <a class="platform" href="https://www.indiabix.com/">IndiaBIX</a>
+          <a class="platform" href="https://www.tcyonline.com/">TCY Online</a>
+          <a class="platform" href="https://www.hitbullseye.com/">Hitbullseye</a>
+        </div>
+      </div>
+
+
+
+  <div class="container">
+    <h1>Technical Round Preparation Tips</h1>
+    <div class="tips">
+      <div class="tip">
+        <h3>Practice Coding Regularly</h3>
+        <p>Regular practice of coding problems improves problem-solving skills.</p>
+      </div>
+      <div class="tip">
+        <h3>Learn Data Structures and Algorithms</h3>
+        <p>Understanding data structures and algorithms is crucial for technical interviews.</p>
+      </div>
+      <div class="tip">
+        <h3>Focus on Concepts</h3>
+        <p>Focus on understanding core concepts rather than just memorizing solutions.</p>
+      </div>
+      <div class="tip">
+        <h3>Stay Updated</h3>
+        <p>Keep yourself updated with the latest technologies and industry trends.</p>
+      </div>
+      <div class="tip">
+        <h3>Mock Interviews</h3>
+        <p>Practice mock interviews to improve communication and problem-solving skills.</p>
+      </div>
+    </div>
+    <div class="platforms">
+      <h3>Useful Platforms for Preparation:</h3>
+      <a class="platform" href="https://leetcode.com/">LeetCode</a>
+      <a class="platform" href="https://www.hackerrank.com/">HackerRank</a>
+      <a class="platform" href="https://www.geeksforgeeks.org/">GeeksforGeeks</a>
+      <a class="platform" href="https://www.interviewbit.com/">InterviewBit</a>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h1>Group Discussion (GD) Round Preparation Tips</h1>
+    <div class="tips">
+      <div class="tip">
+        <h3>Stay Informed</h3>
+        <p>Stay updated on current affairs, industry news, and trending topics.</p>
+      </div>
+      <div class="tip">
+        <h3>Practice Active Listening</h3>
+        <p>Practice active listening to understand and respond effectively to other participants.</p>
+      </div>
+      <div class="tip">
+        <h3>Develop Communication Skills</h3>
+        <p>Focus on improving communication skills, including clarity, articulation, and fluency.</p>
+      </div>
+      <div class="tip">
+        <h3>Respect Others' Views</h3>
+        <p>Respect others' opinions and avoid dominating the discussion.</p>
+      </div>
+      <div class="tip">
+        <h3>Contribute Constructively</h3>
+        <p>Contribute meaningfully to the discussion with relevant points and examples.</p>
+      </div>
+    </div>
+    <div class="platforms">
+      <h3>Useful Platforms for Preparation:</h3>
+      <a class="platform" href="https://www.groupdiscussionideas.com/">Group Discussion Ideas</a>
+      <a class="platform" href="https://www.mbarendezvous.com/gd-topics/">MBA Rendezvous</a>
+      <a class="platform" href="https://www.indiabix.com/group-discussion/topics/">IndiaBIX - GD Topics</a>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h1>Interview Round Preparation Tips</h1>
+    <div class="tips">
+      <div class="tip">
+        <h3>Research the Company</h3>
+        <p>Research the company's background, mission, values, and recent news before the interview.</p>
+      </div>
+      <div class="tip">
+        <h3>Practice Common Questions</h3>
+        <p>Practice answering common interview questions and prepare examples to showcase your skills and experiences.</p>
+      </div>
+      <div class="tip">
+        <h3>Professional Appearance</h3>
+        <p>Dress professionally and maintain good grooming for the interview.</p>
+      </div>
+      <div class="tip">
+        <h3>Be Confident</h3>
+        <p>Be confident in your abilities and express yourself clearly and professionally during the interview.</p>
+      </div>
+      <div class="tip">
+        <h3>Follow-Up</h3>
+        <p>Send a thank-you email or note to the interviewer(s) after the interview to express your gratitude and reiterate your interest in the position.</p>
+      </div>
+    </div>
+    <div class="platforms">
+      <h3>Useful Platforms for Preparation:</h3>
+      <a class="platform" href="https://www.glassdoor.com/Interview/index.htm">Glassdoor - Interview Questions</a>
+      <a class="platform" href="https://www.careercup.com/">CareerCup</a>
+      <a class="platform" href="https://www.interviewcake.com/">Interview Cake</a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  </main>
+  <footer style="background-color: #891652;">
+    <p>&copy; 2024 JobBuddy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function w3_open() {
+document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+document.getElementById("mySidebar").style.display = "none";
+}
+
+</script>
+{% endblock content %}

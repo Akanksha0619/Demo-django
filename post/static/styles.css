@@ -34,7 +34,7 @@ ul {
 }
 
 .content-section {
-   width:90%;
+   width:50%;
   background: #ffffff;
   padding: 20px 20px;
   border: 1px solid #dddddd;
@@ -100,82 +100,6 @@ a.article-title:hover {
 
 
 
-/* Navigation Bar */
-.navbar {
-  background-color: #f8f9fa; /* Light gray background */
-  border-bottom: 1px solid #dee2e6; /* Light gray border */
-  padding: 10px 20px; /* Padding for the navbar */
-}
-
-.navbar-brand {
-  color: #343a40; /* Dark gray text color */
-  font-size: 1.5rem; /* Font size for the brand */
-  font-weight: bold; /* Bold font weight for the brand */
-}
-
-.navbar-nav {
-  margin-left: auto; /* Align navigation items to the right */
-}
-
-.nav-item {
-  margin-left: 15px; /* Spacing between navigation items */
-}
-
-.nav-link {
-  color: #343a40; /* Dark gray text color */
-  font-size: 1.1rem; /* Font size for navigation links */
-}
-
-.nav-link:hover {
-  color: #007bff; /* Dark blue text color on hover */
-  text-decoration: none; /* Remove underline on hover */
-}
-
-.active .nav-link {
-  font-weight: bold; /* Bold font for active link */
-}
-/* Navigation Bar */
-.navbar {
-  background-color: #343a40; /* Dark background */
-  border-bottom: 1px solid #212529; /* Dark border */
-  padding: 10px 20px; /* Padding for the navbar */
-}
-
-.navbar-brand {
-  color: #ffffff; /* White text color */
-  font-size: 1.5rem; /* Font size for the brand */
-  font-weight: bold; /* Bold font weight for the brand */
-}
-
-.navbar-nav {
-  margin-left: auto; /* Align navigation items to the right */
-}
-
-.nav-item {
-  margin-left: 15px; /* Spacing between navigation items */
-}
-
-.nav-link {
-  color: #ffffff; /* White text color */
-  font-size: 1.1rem; /* Font size for navigation links */
-}
-
-.nav-link:hover {
-  color: #007bff; /* Dark blue text color on hover */
-
-
-    text-decoration: none; /* Add underline */
-    /* Change background color */
-    font-size: 1.1em; /* Increase font size */
-    font-weight: bold; /* Change font weight */
-    border-bottom: 2px solid white; /* Add border */
-    padding: 10px 15px; /* Adjust padding */
-    transition: all 0.3s ease; /* Add transition effect */
-}
-
-.active .nav-link {
-  font-weight: bold; /* Bold font for active link */
-}
 
 .fixed-size-image {
     width: 300px;

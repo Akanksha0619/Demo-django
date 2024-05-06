@@ -16,11 +16,15 @@
             </div>
             {% endif %}
         </div>
-        <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content">{{ object.content }}</p>
-        {% if post.image %}
-        <img class="article-image fixed-size-image" src="{{ post.image.url }}" alt="{{ post.title }}">
-        {% endif %}
+        <h2 class="article-title">{{ object.position }} at {{ object.company_name }}</h2>
+        <p class="article-content">{{ object.description }}</p>
+        <p><strong>Company Name:</strong> {{ object.company_name }}</p>
+        <p><strong>Company Image:</strong> <img src="{{ object.company_image.url }}" alt="{{ object.company_name }}"></p>
+        <p><strong>Position:</strong> {{ object.position }}</p>
+        <p><strong>Salary:</strong> {{ object.salary }}</p>
+        <p><strong>Deadline:</strong> {{ object.deadline }}</p>
+        <p><strong>Required Skills:</strong> {{ object.required_skills }}</p>
+        <p><strong>Location:</strong> {{ object.location }}</p>
     </div>
 </article>
 {% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        li strong {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        li p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Contact Messages</h2>
+    <ul>
+        {% for message in messages %}
+        <li>
+            <p><strong>Name:</strong> {{ message.name }}</p>
+            <p><strong>Enrollment Number:</strong> {{ message.enrollment_number }}</p>
+            <p><strong>Branch:</strong> {{ message.branch }}</p>
+            <p><strong>Message:</strong> {{ message.message }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

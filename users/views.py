@@ -2,11 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
-
-
-
 
 
 def register(request):
@@ -16,7 +11,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account has been created! You are now able to login')
-            return redirect('login')
+            return redirect('view-all-users')
     else:
         form = UserRegisterForm()
     return render(request, 'registration/register.html', {'form': form})
@@ -24,10 +19,12 @@ def register(request):
 
 def logout(request):
     messages.info(request, 'you have logged out.')
-    return redirect('login')
+    return redirect('index')
 
 @login_required()
-def profile(request):
+
+def \
+        profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
@@ -48,3 +45,11 @@ def profile(request):
         'p_form': p_form,
   }
     return render(request, 'registration/profile.html', context)
+
+
+
+from django.contrib.auth.models import User
+
+def view_all_users(request):
+    users = User.objects.all()
+    return render(request, 'registration/view_all_user.html', {'users': users})

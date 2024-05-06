@@ -41,7 +41,7 @@
     <div class="profile-container">
         <h1>{{ user.username }}'s Profile</h1>
         <!-- Display user profile information here -->
-        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+        <img class="rounded-circle article-img" src="{{ user.profile.image.url }}">
         <!-- Example: Display user's email, bio, etc. -->
         <p>Email: {{ user.email }}</p>
         <!-- Add more profile information as needed -->
@@ -49,13 +49,19 @@
         <h2>{{ user.username }}'s Posts</h2>
         {% for post in posts %}
             <article>
-                <h3><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+                <h3><a href="{% url 'post-detail' post.id %}">{{ post.position }} at {{ post.company_name }}</a></h3>
                 <!-- Display post image -->
-                {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="{{ post.title }} Image">
+                {% if post.company_image %}
+                    <img src="{{ post.company_image.url }}" alt="{{ post.company_name }} Image">
                 {% endif %}
                 <!-- Display other post information here -->
-                <p>{{ post.content }}</p>
+                <p>{{ post.description }}</p>
+                <p><strong>Company Name:</strong> {{ post.company_name }}</p>
+                <p><strong>Position:</strong> {{ post.position }}</p>
+                <p><strong>Salary:</strong> {{ post.salary }}</p>
+                <p><strong>Deadline:</strong> {{ post.deadline }}</p>
+                <p><strong>Required Skills:</strong> {{ post.required_skills }}</p>
+                <p><strong>Location:</strong> {{ post.location }}</p>
                 <small>Posted on: {{ post.date_posted }}</small>
             </article>
         {% endfor %}

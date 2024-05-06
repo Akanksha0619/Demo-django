@@ -1,59 +1,79 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 <style>
+    /* Your custom styles */
+    h2 {
+        margin-top: 20px; /* Add top margin */
+        margin-bottom: 20px;
+    }
 
+    button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color:#495057; /* Brown color */
+        color: #fff; /* White text color */
+        border: none;
+        cursor: pointer;
+    }
 
-h2 {
-    margin-top: 20px; /* Add top margin */
-    margin-bottom: 20px;
-}
+    button[type="submit"]:hover {
+        background-color: #696969;
+        font-size: 1.1em;
+    }
 
-
-button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color:#495057; /* Brown color */
-    color: #fff; /* White text color */
-    border: none;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-   background-color: #696969;
-  font-size: 1.1em;
-}
-
-label {
-    font-weight: bold;
-}
-
+    label {
+        font-weight: bold;
+    }
 </style>
-    <div class="content-section">
-        <div class="media">
-            {% if user.profile.image %}
-                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-            {% else %}
-                <!-- Display a default image or placeholder -->
-                <img class="rounded-circle account-img" src="media/default.jpg">
-            {% endif %}
-            <div class="media-body">
-                <h2 class="account-heading">{{ user.username }}</h2>
-                <p class="text-secondary">{{ user.email }}</p>
-            </div>
+
+<div class="content-section">
+    <div class="media">
+        {% if user.profile.image %}
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        {% else %}
+            <!-- Display a default image or placeholder -->
+            <img class="rounded-circle account-img" src="{% static 'image/def.jpg' %}">
+            <!-- Make sure to replace 'default.png' with the correct path to your default image -->
+        {% endif %}
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
         </div>
-         <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Profile Info</legend>
-                {{ u_form.as_p}}
-                {{ p_form.as_p}}
-
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
-                <!-- "Create a Post" button aligned to the right -->
-
-            </div>
-         </form>
     </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Profile Info</legend>
+            <!-- Add input fields for the Profile model fields -->
+            <div class="form-group">
+                <label for="id_skills">Skills:</label>
+                <textarea class="form-control" id="id_skills" name="skills" rows="3">{{ user.profile.skills }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_bio">Bio:</label>
+                <textarea class="form-control" id="id_bio" name="bio" rows="3">{{ user.profile.bio }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_resume">Resume:</label>
+                <input type="file" class="form-control-file" id="id_resume" name="resume">
+            </div>
+            <div class="form-group">
+                <label for="id_batch">Batch:</label>
+                <input type="text" class="form-control" id="id_batch" name="batch" value="{{ user.profile.batch }}">
+            </div>
+            <div class="form-group">
+                <label for="id_branch">Branch:</label>
+                <input type="text" class="form-control" id="id_branch" name="branch" value="{{ user.profile.branch }}">
+            </div>
+            <div class="form-group">
+                <label for="id_enrollment_number">Enrollment Number:</label>
+                <input type="text" class="form-control" id="id_enrollment_number" name="enrollment_number" value="{{ user.profile.enrollment_number }}">
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

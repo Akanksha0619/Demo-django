@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobBuddy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body{
+        display: inline;
+
+        }
+        .container{
+            position: relative;
+
+        }
+        .image{
+            position: relative;
+            background-image: url('/static/image/graduates.jpeg');
+
+            height: 900px;
+            width: 100%;
+            background-attachment: local;
+            min-height: 100%;
+            background-size: cover;
+            box-shadow: inset 0 0 0 2000px rgba(3, 0, 10, 0.824);
+
+        }
+        .main{
+            padding-top: 12%;
+            color: rgb(236, 227, 227);
+            text-align:center;
+            align-items: center;
+        }
+        .second-main{
+            margin-top: 400px;
+            font-size: 25px;
+        }
+
+        button{
+            display: block;
+            margin: auto;
+            margin-top: 30px;
+            background: #003366;
+            border: 0px;
+            border-radius: 5px;
+            height: 40px;
+            width: 200px;
+            padding:8px;
+            font-size: 20px;
+        }
+        button a{
+            color: white;
+            text-decoration: none;
+        }
+        button:hover{
+            background-color: #32aac5;
+            transition: .5s ease-in-out;
+            height: 40px;
+            width:210px;
+            border:2px solid rgba(192, 192, 192, 0.867);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.564),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .preparation,.recommendation,.history{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.564),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 15%;
+            height: 300px;
+            width:300px;
+            margin: 20px;
+            padding: 20px;
+
+        }
+        .preparation img,.recommendation img,.history img{
+            margin-left: 90px;
+            height: 100px;
+            width: 100px;
+        }
+        .history:hover{
+            border-radius: 0px;
+            border: 5px solid rgba(0, 132, 255, 0.775);
+        }
+        .para:hover{
+            color: rgba(53, 165, 246, 0.851);
+        }
+        .recommendation:hover{
+            border-radius: 0px;
+            border: 5px solid rgba(0, 132, 255, 0.775);;
+        }
+        .preparation:hover{
+            border-radius: 0px;
+            border: 5px solid rgba(0, 132, 255, 0.775);;
+        }
+        .features h1,p{
+            text-align: center;
+        }
+
+        .features{
+            margin:100px 0px 80px 0px ;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .bottom{
+            /* background-image: url(images/graduates.png.jpeg); */
+            width: 100%;
+            height: 300px;
+            max-height: 100%;
+            opacity: 1;
+            color: white;
+            background-attachment: local;
+            text-align: center;
+            min-height: 100%;
+            background-size: cover;
+            box-shadow: inset 0 0 0 2000px rgba(3, 0, 10, 0.569);
+        }
+        .bottom div{
+            padding: 2px 20px 0px 20px ;
+        }
+
+        .green{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            margin-left: 45%;
+        }
+        .companies{
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 130px;
+            margin-top: 10px;
+        }
+        .companies img{
+            height: 120px;
+            width: auto;
+        }
+        .sentence{
+            margin: 10px 30px;
+            padding: 15px 100px;
+            text-align: center;
+            font-size: 30px;
+            font-family:  Verdana, Tahoma, sans-serif;
+        }
+        .bottom p{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #myArw {
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  right: 48%;
+  background-color: #333333c9;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+}
+.fa-arrow-circle-o-down{
+    font-size: 30px;
+}
+.contact{
+    font-size: 20px;
+    position: fixed;
+    height: 25px;
+    width:auto;
+    background-color: rgba(0, 5, 73, 0.841);
+    padding: 10px;
+    top: 90%;
+    right: 0px;
+    border-radius: 15px 0px 0px 15px;
+}
+.contact a{
+    color: white;
+    text-decoration: none;
+}
+.contact i{
+    color: white;
+}
+.feature-text{
+    display: flex;
+    margin-left: 40%;
+    height: 50px;
+    width:auto;
+    margin-top: 100px;
+}
+.our, .service{
+    font-size: 30px;
+    padding: 4px;
+}
+.service{
+    color: #012560;
+    font-weight: 20px;
+}
+.testimonials{
+    margin: 50px;
+}
+#color{
+    background-color: rgba(212, 230, 250, 0.205);
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="image">
+        <div class="main">
+            <h2>Find your perfect Job Match</h2>
+            <p style="font-size: 70px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin: auto;" >Welcome To Job Buddy</p>
+            <button><a href="{% url 'login' %}">Login  for  More </a></button>
+            <div class="second-main">
+            <b><h1>"Building Bridges to Career Success"</h1></b>
+            <h2>Where Education and Technology Propel You Forward</h2>
+        </div>
+
+        </div>
+</div>
+<hr>
+<div id="color">
+    <div class="feature-text"> <div class="our"><h1>Our</h1></div><div class="service"><h1>Services</h1></div></div>
+   <section class="features">
+
+       <div class="preparation pop" >
+           <img src="static/image/book.jpeg" alt="" height="150px" width="150px">
+
+            <div>
+            <h1>Preparation Tips</h1>
+            <p class="para" >Preparation is the bridge between intention and achievement. Remember the depth of your preparationdetermines the height of your Success.</p></div>
+       </div>
+
+
+       <div class="recommendation pop">
+           <img src="static/image/recommemdation.jpeg" alt="" height="150px" width="150px">
+           <div>
+           <h1>Job Recommendation</h1>
+           <p class="para">Finding the right job is like finding the missing piece to your career puzzle. Seek opportunities that challenge you to grow and contribute meaningfully.</p>
+
+       </div>
+       </div>
+
+       <div class="history pop" >
+           <img src="static/image/previous.jpeg" alt="" style="margin-top: 10px;" height="120px" width="120px">
+           <div>
+               <h1>Previous Data</h1>
+               <p class="para">Cultivate insights from past data for smarter decisions. Reflect on past experiences as they hold valuable lessons for future Endeavors.</p>
+
+           </div>
+       </div>
+   </section>
+   </div>
+
+<section class="testimonials">
+    <div class="sentence"> "Tired of feeling lost in the career jungle? Let us be your compass and guide you to the perfect professional match!"</div>
+
+    <img class="green" src="static/image/green.jpeg" alt="">
+
+    <div class="companies">
+        <img src="static/image/tech mahindra.jpeg" alt="">
+        <img src="static/image/bajaj finserv.jpeg" alt="">
+        <img src="static/image/wipro.jpeg" alt="">
+        <img src="static/image/byjus.jpeg" alt="">
+
+    </div>
+
+</section>
+
+<section class="bottom">
+  <!-- <h3>Your gateaway to personalized recommendations.</h3> -->
+
+  <div>
+    <h1>About Us </h1><br>
+    <p>Welcome to job buddy for the students of cdgi where learning meets career development.</p>
+    <p>Our mission is simple : to bridge the gap between education and industry by providing personalized career recommemdation tailored to your skills and aspirations. Wheather you're a recent graduate or seasoned professional, we're here to help you unlock your full potential and thrive in today's competitive job market.</p>
+    <p>join us as we empower minds, shape futures, and unleash endless possibllities for success.</p>
+
+</div>
+</section>
+
+<span class="contact">
+
+    <i class="fa fa-phone"></i>
+    <a href="{% url 'contact_form' %}"> Contact </a>
+     <!-- <i class="fa fa-volume-control-phone"></i> -->
+
+    <!-- <i class="fa fa-whatsapp"></i> -->
+    </span>
+
+</div>
+
+<div onclick="topFunction()" id="myArw" title="Go to top"><i class="fa fa-chevron-up"></i></div>
+
+<script>
+   let myarrow = document.getElementById("myArw");
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    myarrow.style.display = "block";
+  } else {
+    myarrow.style.display = "none";
+  }
+}
+
+function topFunction() {
+    window.scrollTo({
+        top : 0,
+        behavior :"smooth"
+    });
+
+//   document.body.scrollTop = 0;
+//   document.documentElement.scrollTop = 0;
+
+}
+</script>
+
+
+</body>
+</html>

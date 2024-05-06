@@ -1,20 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
+<style>
+    .media content-section{
+        margin-top:100px;
+                box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+</style>
     {% for post in posts %}
         <article class="media content-section">
-            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
-            <div class="media-body">
-                 <a href="{% url 'user-profile' post.author.id %}">{{ post.author.username }}</a>
+    {% if post.author.profile.image %}
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+    {% else %}
+        <!-- Placeholder image or default image if author profile image is not available -->
+        <img class="rounded-circle article-img" src="{% static 'image/def.jpg' %}">
+    {% endif %}
+    <div class="media-body">
+        <a class="black-anchor" href="{% url 'user-profile' post.author.id %}"><strong> {{ post.author.username }}</strong></a><br>
+        <div class="article-metadata">
+             <h3><strong> {{ post.company_name }}</strong></h3><br>
+            <h4><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.position }}</a></h4><br>
+            {% if post.company_image %}
+                <img class="article-image fixed-size-image" src="{{ post.company_image.url }}" alt="{{ post.company_name }}" onclick="openImageModal('{{ post.company_image.url }}', '{{ post.company_name }}')"><br><br><br>
+            {% endif %}
+            <p class="mr-2"><a href="{% url 'posts-by-date' post.date_posted.date %}" style="color: black;">{{ post.date_posted|date:"F d, Y" }}</a></p>
+            <!-- Add other fields as necessary -->
 
-                <div class="article-metadata">
-                    <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-                {% if post.image %}
-                    <img class="article-image fixed-size-image" src="{{ post.image.url }}" alt="{{ post.title }}" onclick="openImageModal('{{ post.image.url }}', '{{ post.title }}')">
-                {% endif %}
-                     <p class="mr-2"><a href="{% url 'posts-by-date' post.date_posted.date %}">{{ post.date_posted|date:"F d, Y" }}</a></p>
-                </div>
-            </div>
-        </article>
+
+        </div>
+    </div>
+</article>
+
     {% endfor %}
 
     <!-- Modal for displaying enlarged image -->
@@ -56,6 +71,11 @@
             margin: auto;
             max-width: 100%;
             max-height: 80%;
+        }
+
+        /* Change anchor tag color to black */
+        .black-anchor {
+            color: black;
         }
     </style>
 

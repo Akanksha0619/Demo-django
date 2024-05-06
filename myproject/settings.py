@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-udqcw$@$(d(=xm0bthd815+6yz2xyr26vwv+*x!(8mwubq8d21
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+SESSION_COOKIE_DOMAIN = None
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app']
 
 
 # Application definition
@@ -131,3 +135,10 @@ LOGIN_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Or 'bootstrap', 'uni-form', etc., depending on your preferred frontend framework
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'rathoremuskan597@gmail.com'
+EMAIL_HOST_PASSWORD = 'lkir saor nlfo vnsf'
+EMAIL_USE_TLS = True

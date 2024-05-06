@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            width: 80%;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Find Your Perfect Job</h1>
+    <form method="post" action="{% url 'job_search' %}">
+        {% csrf_token %}
+        <label for="location">Location:</label>
+        <input type="text" name="location">
+
+        <label for="salary_range">Salary Range:</label>
+        <input type="text" name="salary_range">
+
+        <label for="position">Position:</label>
+        <input type="text" name="position">
+
+        <label for="skills">Skills:</label>
+        <input type="text" name="skills">
+
+        <button type="submit">Search</button>
+    </form>
+{% endblock content %}

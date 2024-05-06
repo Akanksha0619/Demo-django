@@ -28,8 +28,11 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('logout/', user_views.logout, name='logout'),
     path('', include('post.urls')),
+    path('users/', user_views.view_all_users, name='view-all-users'),
 ]
 
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

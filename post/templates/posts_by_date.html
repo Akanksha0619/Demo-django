@@ -9,10 +9,17 @@
                     <p class="mr-2">{{ post.author }}</p>
                     <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
                 </div>
-                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-                {% if post.image %}
-                    <img class="article-image fixed-size-image" src="{{ post.image.url }}" alt="{{ post.title }}" onclick="openImageModal('{{ post.image.url }}', '{{ post.title }}')">
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.position }} at {{ post.company_name }}</a></h2>
+                {% if post.company_image %}
+                    <img class="article-image fixed-size-image" src="{{ post.company_image.url }}" alt="{{ post.company_name }}" onclick="openImageModal('{{ post.company_image.url }}', '{{ post.company_name }}')">
                 {% endif %}
+                <p>{{ post.description }}</p>
+                <p><strong>Company Name:</strong> {{ post.company_name }}</p>
+                <p><strong>Position:</strong> {{ post.position }}</p>
+                <p><strong>Salary:</strong> {{ post.salary }}</p>
+                <p><strong>Deadline:</strong> {{ post.deadline }}</p>
+                <p><strong>Required Skills:</strong> {{ post.required_skills }}</p>
+                <p><strong>Location:</strong> {{ post.location }}</p>
             </div>
         </article>
     {% endfor %}

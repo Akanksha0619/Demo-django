@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<style>
+
+    .user-info{
+        width:500px;
+        text-align:center;
+        margin-left:45%;
+        box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border:1px solid black;
+        margin-top:50px;
+        border-radius:5px;
+        padding:50px 50px;
+    }
+    h1{
+        margin-left:70%;
+    }
+    .profile{
+        border-radius:50%;
+        height:250px;
+        width:250px;
+    }
+
+</style>
+    <h1>All Users</h1>
+    {% for user in users %}
+        <div class="user-info">
+            <h2>{{ user.username }}</h2>
+            <!-- Display user profile information here -->
+            {% if user.profile.image %}
+                <img src="{{ user.profile.image.url }}" alt="{{ user.username }}'s Profile Image" class="profile">
+            {% else %}
+                <!-- Placeholder image or default image if user profile image is not available -->
+                <img src="{% static 'path_to_default_image/default_profile_image.png' %}" alt="Default Profile Image" class="profile" >
+            {% endif %}
+            <p>Email: {{ user.email }}</p>
+            <!-- Add more profile information as needed -->
+            <a href="{% url 'user-profile' user.id %}">View Profile</a>
+        </div>
+    {% endfor %}
+{% endblock %}

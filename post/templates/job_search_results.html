@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .job {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .job h2 {
+            margin-top: 0;
+        }
+        .recommended {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .recommended h3 {
+            margin-top: 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Job Search Results</h1>
+    <div class="jobs">
+        <h2>Filtered Jobs</h2>
+        {% if jobs %}
+            {% for job in jobs %}
+                <div class="job">
+                    <h2>{{ job.position }}</h2>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                    <p><strong>Salary:</strong> {{ job.salary }}</p>
+                    <p><strong>Skills Required:</strong> {{ job.required_skills }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No jobs found matching your criteria.</p>
+        {% endif %}
+    </div>
+
+    {% if recommended_jobs %}
+        <div class="recommended">
+            <h3>Recommended Jobs</h3>
+            {% for job in recommended_jobs %}
+                <div class="job">
+                    <h2>{{ job.position }}</h2>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                    <p><strong>Salary:</strong> {{ job.salary }}</p>
+                    <p><strong>Skills Required:</strong> {{ job.required_skills }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{% endblock content %}
